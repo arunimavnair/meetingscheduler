@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Meeting</title>
+    <title>Register</title>
+    
+    <style>
+        body{
+            background: linear-gradient(rgb(25, 52, 59),rgb(98, 192, 216),rgb(27, 76, 90));
+        }
+        .ab{
+            max-width: 500px;
+            margin: 100px auto;
+            text-align: center;
+            background: white;
+            padding-top: 40px;
+            padding-bottom:40px;
+            margin-top:40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-sizing: content-box;
+        }
+        button {
+            display: inline-block;
+            margin: 15px 10px;
+            padding: 12px 24px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #007a1f;
+        }
+        input,textarea,select{
+            width: 250px;
+            padding: 10px;
+            margin: 10px;
+            
+        }
+        input,textarea,select:focus{
+            border-color: rgb(157, 157, 253);
+            outline-color: rgb(181, 122, 236);
+        }
+        p{
+            color: rgb(248, 248, 239);
+            
+        }
+        a{
+            color: rgb(0, 0, 0);
+        }
+        
+        
+        h2,h3{
+            margin-left: 20PX;
+            font-size:x-large;
+            color: rgb(8, 8, 58);
+           text-decoration:underline; 
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        label{
+            
+            color: rgb(7, 17, 61);
+            text-shadow: coral;
+            font-weight: 100px;
+            font-display:block;
+          
+        }
+        .c{
+            color:white;
+        }
+        #meetings{
+            width: 300px;
+            box-sizing:content-box;
+        }
+    </style>
+</head>
+<body>
+
+<form  class="ab" action="update_meeting.php" method="post">
+<h2>Edit Meeting</h2><br>
+<label>Meeting Title</label>
+    <input name="title" value="<?= htmlspecialchars($meeting['title']) ?>" required><br>
+    <label>Meeting Date</label>
+    <input name="meeting_date" type="date" value="<?= htmlspecialchars($meeting['meeting_date']) ?>" required><br>
+    <label>Meeting Time</label>
+    <input name="meeting_time" type="time" value="<?= htmlspecialchars($meeting['meeting_time']) ?>" required><br>
+    <label>Description</label>&ensp;
+    <textarea name="description"><?= htmlspecialchars($meeting['description']) ?></textarea><br>
+    <input type="hidden" name="meeting_id" value="<?= $meeting['id'] ?>"><br>
+    <button type="submit">Update Meeting</button>
+</form>
+</body>
+</html>
